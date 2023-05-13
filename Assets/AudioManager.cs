@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
-public class Manager : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
-    public static Manager Instance;
-    #region Global variables
-    //Declare global variables here
-
-    #endregion
+    public static AudioManager Instance;
+    
+    public AudioClip FlapSFX;
+    public AudioClip EmptySFX;
+    public AudioClip BackgroundMusic;
+    public AudioSource SourceGlobal;
+    public AudioSource SourceSFX;
+    public AudioMixer Mixer;
     
     private void Awake()
     {
