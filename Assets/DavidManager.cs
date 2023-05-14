@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DavidManager : MonoBehaviour
 {
@@ -16,5 +17,10 @@ public class DavidManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public static void switchToMainMenu()
+    {
+        SceneManager.LoadScene("MenuScene");
     }
 }

@@ -75,7 +75,10 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Manager.isAlive)
+        if(Input.GetKeyDown(KeyCode.R))
+            DavidManager.switchToMainMenu();
+        
+        if (Manager.Instance.isAlive)
         {
             if (Input.GetKey(KeyCode.Space) && Fuel > 0)
             {
@@ -124,9 +127,9 @@ public class PlayerScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(Manager.isAlive)
+        if(Manager.Instance.isAlive)
             AudioManager.Instance.SourceGlobal.PlayOneShot(AudioManager.Instance.Crash, 1f);
-        Manager.isAlive = false;
+        Manager.Instance.isAlive = false;
         AudioManager.Instance.sourceFlapSfx.Stop();
         Debug.Log("Hit Something");
         if (collision.gameObject.name.Contains("rock"))
@@ -137,7 +140,7 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(Manager.isAlive)
+        if(Manager.Instance.isAlive)
         {
             if (other.CompareTag("Fuel"))
             {

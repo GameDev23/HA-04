@@ -8,7 +8,7 @@ public class TriggerSection2 : MonoBehaviour
     {
         if (collider.CompareTag("Player"))
         {
-            Manager.isSection2 = true;
+            Manager.Instance.isSection2 = true;
         }
     }
 }

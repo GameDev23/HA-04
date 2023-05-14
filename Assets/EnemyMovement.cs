@@ -18,10 +18,10 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Manager.isSection2)
+        if(Manager.Instance.isSection2)
             transform.position += new Vector3(-6 * Time.deltaTime, 0 , 0);
         
-        if (!Manager.isAlive && isHitboxActive)
+        if (!Manager.Instance.isAlive && isHitboxActive)
         {
             myCollider.enabled = false;
             isHitboxActive = false;

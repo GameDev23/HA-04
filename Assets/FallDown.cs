@@ -13,7 +13,7 @@ public class FallDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Manager.isSection3)
+        if (Manager.Instance.isSection3)
             transform.position += new Vector3(0, -2 * Time.deltaTime, 0);
     }
 }

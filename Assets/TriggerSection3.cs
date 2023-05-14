@@ -21,7 +21,7 @@ public class TriggerSection3 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Manager.isSection3 = true;
+            Manager.Instance.isSection3 = true;
         }
     }
 }
