@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6816187372947342547}
   - component: {fileID: 7586348538350195605}
   - component: {fileID: 6762998586538950863}
+  - component: {fileID: 3664305914537029259}
   m_Layer: 6
   m_Name: rockSnowDown
   m_TagString: Untagged
@@ -132,3 +133,15 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &3664305914537029259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8472316505437264052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a89cb0d5aed01247a96dfbead651a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
