@@ -17,6 +17,6 @@ public class FollowScript : MonoBehaviour
     void Update()
     {
         playerPos = Player.transform.position;
-        transform.position = new Vector3(playerPos.x, transform.position.y, -10);
+        transform.position = new Vector3(playerPos.x + 6, transform.position.y, -10);
     }
 }
