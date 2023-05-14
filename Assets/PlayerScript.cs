@@ -5,6 +5,7 @@ using System.Net;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
@@ -110,6 +111,7 @@ public class PlayerScript : MonoBehaviour
             {
                 AudioManager.Instance.sourceFlapSfx.Stop();
             }
+            
             //tile plane downwards
             transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, tiltSmooth * Time.deltaTime);
         
@@ -124,6 +126,14 @@ public class PlayerScript : MonoBehaviour
             {
                 AudioManager.Instance.SourceGlobal.PlayOneShot(AudioManager.Instance.EmptySFX, 1f);
                 didPlaySound = true;
+            }
+        }
+        if (!Manager.Instance.isAlive)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Debug.Log("Reset Scene");
+                SceneManager.LoadScene("DavidLevel");
             }
         }
 
