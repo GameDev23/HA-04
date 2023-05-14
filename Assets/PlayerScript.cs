@@ -14,7 +14,7 @@ public class PlayerScript : MonoBehaviour
     public float Gravity = 7f;
     public float Fuel = 100f;
     public float FuelConsumption = 15f;
-    public bool isAlive = true;
+
     
     
     [SerializeField] private Rigidbody2D playerRigidBody;
@@ -59,8 +59,8 @@ public class PlayerScript : MonoBehaviour
         //ChatGPT
         
         //init FlapSFX
-        AudioManager.Instance.SourceSFX.clip = AudioManager.Instance.FlapSFX;
-        AudioManager.Instance.SourceSFX.volume = 0.2f;
+        AudioManager.Instance.sourceFlapSfx.clip = AudioManager.Instance.FlapSFX;
+        AudioManager.Instance.sourceFlapSfx.volume = 0.2f;
     }
 
     //Physic goes in here
@@ -75,11 +75,8 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isAlive)
+        if (Manager.isAlive)
         {
-            
-
-
             if (Input.GetKey(KeyCode.Space) && Fuel > 0)
             {
 
@@ -98,7 +95,7 @@ public class PlayerScript : MonoBehaviour
             }
             else
             {
-                AudioManager.Instance.SourceSFX.Stop();
+                AudioManager.Instance.sourceFlapSfx.Stop();
             }
             //tile plane downwards
             transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, tiltSmooth * Time.deltaTime);
@@ -121,14 +118,17 @@ public class PlayerScript : MonoBehaviour
     
     private void playFlapSound()
     {
-        if (!AudioManager.Instance.SourceSFX.isPlaying)
-            AudioManager.Instance.SourceSFX.Play();
-
+        if (!AudioManager.Instance.sourceFlapSfx.isPlaying)
+            AudioManager.Instance.sourceFlapSfx.Play();
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Hit Rock");
+        if(Manager.isAlive)
+            AudioManager.Instance.SourceGlobal.PlayOneShot(AudioManager.Instance.Crash, 1f);
+        Manager.isAlive = false;
+        AudioManager.Instance.sourceFlapSfx.Stop();
+        Debug.Log("Hit Something");
         if (collision.gameObject.name.Contains("rock"))
         {
             Debug.Log("Hit Rock");
@@ -137,7 +137,13 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Trigger enter");
+        if(Manager.isAlive)
+        {
+            if (other.CompareTag("Fuel"))
+            {
+                Fuel = Fuel < 25 ? Fuel + 75 : 100;
+            }
+        }
     }
 }
 

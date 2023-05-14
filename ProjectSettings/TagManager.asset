@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Fuel
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,12 @@ TagManager:
     locked: 0
   - name: Obstacles
     uniqueID: 1287913747
+    locked: 0
+  - name: Enemy
+    uniqueID: 978184925
+    locked: 0
+  - name: Item
+    uniqueID: 952688931
     locked: 0
   - name: Player
     uniqueID: 450867835

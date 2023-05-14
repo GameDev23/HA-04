@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Serialization;
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,8 +11,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip FlapSFX;
     public AudioClip EmptySFX;
     public AudioClip BackgroundMusic;
+    public AudioClip Crash;
+    public AudioClip CollectItem;
     public AudioSource SourceGlobal;
-    public AudioSource SourceSFX;
+    public AudioSource sourceFlapSfx;
+    public AudioSource sourceSfx;
     public AudioMixer Mixer;
     
     private void Awake()
