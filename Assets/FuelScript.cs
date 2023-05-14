@@ -20,7 +20,7 @@ public class FuelScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.CompareTag("Player"))
+        if(collider.CompareTag("Player") && Manager.isAlive)
         {
             AudioManager.Instance.sourceSfx.PlayOneShot(AudioManager.Instance.CollectItem, 2f);
             Destroy(gameObject);
