@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip BackgroundMusic;
     public AudioClip Crash;
     public AudioClip CollectItem;
+    public AudioClip Goal;
     public AudioSource SourceGlobal;
     public AudioSource sourceFlapSfx;
     public AudioSource sourceSfx;

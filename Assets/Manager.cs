@@ -10,6 +10,7 @@ public class Manager : MonoBehaviour
     public bool isSection2 = false;
     public bool isSection3 = false;
     public bool isAlive = true;
+    public bool isGoal = false;
 
     #endregion
     

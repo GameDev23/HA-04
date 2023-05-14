@@ -26,6 +26,7 @@ public class PlayerScript : MonoBehaviour
     private Quaternion downRotation;
     private Quaternion forwardRotation;
     private bool didPlaySound = false;
+    private Vector3 goalVector = Vector3.zero;
 
     private Gradient gradient = new Gradient();
     GradientColorKey[] gck = new GradientColorKey[2];
@@ -77,8 +78,17 @@ public class PlayerScript : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.R))
             DavidManager.switchToMainMenu();
+
+        if (Manager.Instance.isGoal && goalVector == Vector3.zero)
+        {
+            goalVector = transform.position;
+        }
+        else if (Manager.Instance.isGoal)
+        {
+            transform.position = goalVector;
+        }
         
-        if (Manager.Instance.isAlive)
+        if (Manager.Instance.isAlive && !Manager.Instance.isGoal)
         {
             if (Input.GetKey(KeyCode.Space) && Fuel > 0)
             {

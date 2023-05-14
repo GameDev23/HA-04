@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class DavidManager : MonoBehaviour
 {
+    public GameObject gameOverPanel;
+
+    private bool isGameOver = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +20,11 @@ public class DavidManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!Manager.Instance.isAlive && !isGameOver)
+        {
+            isGameOver = true;
+            gameOverPanel.SetActive(true);
+        }
     }
 
     public static void switchToMainMenu()
