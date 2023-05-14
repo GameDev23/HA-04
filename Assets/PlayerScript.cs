@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     public float Gravity = 7f;
     public float Fuel = 100f;
     public float FuelConsumption = 15f;
+    public bool isAlive = true;
     
     
     [SerializeField] private Rigidbody2D playerRigidBody;
@@ -33,7 +35,8 @@ public class PlayerScript : MonoBehaviour
     
     private void Awake()
     {
-        //playerRigidBody.velocity = new Vector2(3f, 0f);
+        // make plane fly to the right
+        playerRigidBody.velocity = new Vector2(3f, 0f);
     }
 
     // Start is called before the first frame update
@@ -57,7 +60,7 @@ public class PlayerScript : MonoBehaviour
         
         //init FlapSFX
         AudioManager.Instance.SourceSFX.clip = AudioManager.Instance.FlapSFX;
-        AudioManager.Instance.SourceSFX.volume = 0.5f;
+        AudioManager.Instance.SourceSFX.volume = 0.2f;
     }
 
     //Physic goes in here
@@ -72,42 +75,46 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
-        if (Input.GetKey(KeyCode.Space) && Fuel > 0)
+        if (isAlive)
         {
-
-            playFlapSound();
-            //tilt plane upwards
-            transform.rotation = Quaternion.Lerp(transform.rotation, forwardRotation, tiltSmooth * Time.deltaTime * 2);
-            //add upwards velocity upto 7
-            if(playerRigidBody.velocity.y < 7)
-                playerRigidBody.AddForce(Vector2.up * FlapForce * Time.deltaTime, ForceMode2D.Force);
-
-            if(Fuel > 0)
-                Fuel -= FuelConsumption * Time.deltaTime;
-            if (Fuel < 0)
-                Fuel = 0;
             
-        }
-        else
-        {
-            AudioManager.Instance.SourceSFX.Stop();
-        }
-        //tile plane downwards
-        transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, tiltSmooth * Time.deltaTime);
+
+
+            if (Input.GetKey(KeyCode.Space) && Fuel > 0)
+            {
+
+                playFlapSound();
+                //tilt plane upwards
+                transform.rotation = Quaternion.Lerp(transform.rotation, forwardRotation, tiltSmooth * Time.deltaTime * 2);
+                //add upwards velocity upto 7
+                if(playerRigidBody.velocity.y < 7)
+                    playerRigidBody.AddForce(Vector2.up * FlapForce * Time.deltaTime, ForceMode2D.Force);
+
+                if(Fuel > 0)
+                    Fuel -= FuelConsumption * Time.deltaTime;
+                if (Fuel < 0)
+                    Fuel = 0;
+            
+            }
+            else
+            {
+                AudioManager.Instance.SourceSFX.Stop();
+            }
+            //tile plane downwards
+            transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, tiltSmooth * Time.deltaTime);
         
-        //refresh fuel text and bar
-        FuelText.text = (int) Fuel + "% Fuel";
-        FuelBar.fillAmount = Fuel / 100;
+            //refresh fuel text and bar
+            FuelText.text = Fuel > 0 ? (int) Fuel + "% Fuel" : "Empty";
+            FuelBar.fillAmount = Fuel / 100;
         
-        //adjust fuel color to gradient
-        FuelBar.color = gradient.Evaluate(Fuel / 100);
-        //play out of fuel sound if fuel is empty
-        if(Fuel == 0 && !didPlaySound)
-        {
-            AudioManager.Instance.SourceGlobal.PlayOneShot(AudioManager.Instance.EmptySFX, 1f);
-            didPlaySound = true;
+            //adjust fuel color to gradient
+            FuelBar.color = gradient.Evaluate(Fuel / 100);
+            //play out of fuel sound if fuel is empty
+            if(Fuel == 0 && !didPlaySound)
+            {
+                AudioManager.Instance.SourceGlobal.PlayOneShot(AudioManager.Instance.EmptySFX, 1f);
+                didPlaySound = true;
+            }
         }
 
     }
@@ -117,6 +124,20 @@ public class PlayerScript : MonoBehaviour
         if (!AudioManager.Instance.SourceSFX.isPlaying)
             AudioManager.Instance.SourceSFX.Play();
 
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Hit Rock");
+        if (collision.gameObject.name.Contains("rock"))
+        {
+            Debug.Log("Hit Rock");
+        } 
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Trigger enter");
     }
 }
 
