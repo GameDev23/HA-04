@@ -14,7 +14,7 @@ public class PlayerScript : MonoBehaviour
     public float FlapForce = 1000f;
     public float Gravity = 7f;
     public float Fuel = 100f;
-    public float FuelConsumption = 15f;
+    public float FuelConsumption = 10f;
 
     
     
