@@ -91,7 +91,7 @@ public class PlayerScript : MonoBehaviour
         
         if (Manager.Instance.isAlive && !Manager.Instance.isGoal)
         {
-            if (Input.GetKey(KeyCode.Space) && Fuel > 0)
+            if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0)) && Fuel > 0)
             {
 
                 playFlapSound();
@@ -130,7 +130,7 @@ public class PlayerScript : MonoBehaviour
         }
         if (!Manager.Instance.isAlive)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0)))
             {
                 Debug.Log("Reset Scene");
                 SceneManager.LoadScene("DavidLevel");
@@ -147,6 +147,7 @@ public class PlayerScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+
         if(Manager.Instance.isAlive)
             AudioManager.Instance.SourceGlobal.PlayOneShot(AudioManager.Instance.Crash, 1f);
         Manager.Instance.isAlive = false;

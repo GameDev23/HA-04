@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 8567710721522239959}
   m_Layer: 7
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: TopBorder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,8 +271,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -3.9874592, y: 2.393249}
-  - {x: 3.9937294, y: 2.393249}
+  - {x: -3.9889436, y: 2.6358838}
+  - {x: 3.972444, y: 2.6097202}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0

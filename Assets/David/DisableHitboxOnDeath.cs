@@ -17,11 +17,13 @@ public class DisableHitboxOnDeath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (!Manager.Instance.isAlive && isHitboxActive)
+        if(Manager.Instance != null)
         {
-            myCollider.enabled = false;
-            isHitboxActive = false;
+            if (!Manager.Instance.isAlive && isHitboxActive)
+            {
+                myCollider.enabled = false;
+                isHitboxActive = false;
+            }
         }
     }
 }
