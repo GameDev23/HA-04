@@ -133,7 +133,9 @@ public class PlayerScript : MonoBehaviour
             if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0)))
             {
                 Debug.Log("Reset Scene");
-                SceneManager.LoadScene("DavidLevel");
+                Scene scene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(scene.name);
+                
             }
         }
 
