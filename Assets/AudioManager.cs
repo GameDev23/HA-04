@@ -14,9 +14,12 @@ public class AudioManager : MonoBehaviour
     public AudioClip Crash;
     public AudioClip CollectItem;
     public AudioClip Goal;
+    public AudioClip PlaneSfx;
+    public AudioClip MikuDaYo;
     public AudioSource SourceGlobal;
     public AudioSource sourceFlapSfx;
     public AudioSource sourceSfx;
+
     public AudioMixer Mixer;
     
     private void Awake()

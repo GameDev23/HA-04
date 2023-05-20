@@ -9,4 +9,15 @@ public class SwitchLevel : MonoBehaviour
     {
         SceneManager.LoadScene("DavidLevel");
     }
+    
+    public void OnClickMarvin()
+    {
+        SceneManager.LoadScene("MarvinLevel");
+    }
+    
+    public void OnClickSamwel()
+    {
+        Debug.LogError("Not implemented");
+        //SceneManager.LoadScene("DavidLevel");
+    }
 }
