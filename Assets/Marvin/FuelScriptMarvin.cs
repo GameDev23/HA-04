@@ -22,7 +22,7 @@ public class FuelScriptMarvin : MonoBehaviour
     {
         if(collider.CompareTag("Player") && Manager.Instance.isAlive)
         {
-            AudioManager.Instance.sourceSfx.PlayOneShot(AudioManager.Instance.CollectItem, 2f);
+            AudioManager.Instance.sourceSfx.PlayOneShot(AudioManager.Instance.MikuDaYo, 1f);
             Destroy(gameObject);
         }
         

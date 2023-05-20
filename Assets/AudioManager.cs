@@ -18,6 +18,8 @@ public class AudioManager : MonoBehaviour
     public AudioSource sourceFlapSfx;
     public AudioSource sourceSfx;
     public AudioMixer Mixer;
+    public AudioClip MikuDaYo;
+    public AudioClip PlaneSfx;
     
     private void Awake()
     {
