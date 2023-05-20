@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MarvinLevel.unity
     guid: 811c94f75dbf4bb439d4310e1509ea38
+  - enabled: 1
+    path: Assets/Scenes/SamwelLevel.unity
+    guid: 798ba9c0afec68641843de02675016bd
   m_configObjects: {}
