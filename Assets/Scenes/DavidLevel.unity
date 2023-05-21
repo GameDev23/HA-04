@@ -2942,10 +2942,10 @@ RectTransform:
   m_Father: {fileID: 456184761}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 821.27313, y: 471.9761}
-  m_SizeDelta: {x: -1666.3966, y: -1024.9669}
+  m_AnchoredPosition: {x: -143.16199, y: -66.914}
+  m_SizeDelta: {x: 231.599, y: 48.478027}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &913181680
 MonoBehaviour:
@@ -4283,6 +4283,8 @@ MonoBehaviour:
   Crash: {fileID: 8300000, guid: 392072988ecdfa04f851714e71978cde, type: 3}
   CollectItem: {fileID: 8300000, guid: 59cdaf432bead1e44a0d1ad195a2119d, type: 3}
   Goal: {fileID: 8300000, guid: d6225675878f94244b767d330520abce, type: 3}
+  PlaneSfx: {fileID: 0}
+  MikuDaYo: {fileID: 0}
   SourceGlobal: {fileID: 1335390810}
   sourceFlapSfx: {fileID: 1335390812}
   sourceSfx: {fileID: 1335390813}
@@ -6707,10 +6709,10 @@ RectTransform:
   m_Father: {fileID: 456184761}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -836.531, y: 478.334}
-  m_SizeDelta: {x: -1691.615, y: -987.663}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 173, y: -106}
+  m_SizeDelta: {x: 228.40002, y: 127.25403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2132440281
 MonoBehaviour:

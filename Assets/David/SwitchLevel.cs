@@ -17,7 +17,7 @@ public class SwitchLevel : MonoBehaviour
     
     public void OnClickSamwel()
     {
-        Debug.LogError("Not implemented");
-        //SceneManager.LoadScene("DavidLevel");
+        
+        SceneManager.LoadScene("SamwelLevel");
     }
 }
