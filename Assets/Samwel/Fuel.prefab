@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1775266635712922121}
   - component: {fileID: 4638165584629602632}
   - component: {fileID: 8211578567062975182}
+  - component: {fileID: 4852910605265933324}
   m_Layer: 0
   m_Name: Fuel
   m_TagString: Fuel
@@ -114,3 +115,15 @@ CircleCollider2D:
   m_Offset: {x: 0.01013042, y: 0}
   serializedVersion: 2
   m_Radius: 0.15844208
+--- !u!114 &4852910605265933324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4534211276111435659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde3e78eaa1158e44aa271a71b07e67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
